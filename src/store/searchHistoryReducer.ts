@@ -2,7 +2,7 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { ISearchHistory } from "../types/types";
 import { loadState } from "../services/localStorageService";
 import { SEARCHED_ITEMS } from "../constants/reducers";
-import { sortArrayByDate } from "../services/utilsService";
+import { sortArrayByDate } from "../utils/utilsService";
 
 interface ItemsState {
   searchedItems: ISearchHistory[];
