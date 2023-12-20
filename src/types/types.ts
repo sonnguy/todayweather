@@ -11,13 +11,6 @@ export type RequestConfig = {
   body?: object;
 };
 
-export interface ITemp {
-  temp: string;
-  temp_max: string;
-  temp_min: string;
-  humidity: string;
-}
-
 export interface IWeatherResponse {
   main: any;
   name: string;
@@ -27,10 +20,18 @@ export interface IWeatherResponse {
   dt: number;
 }
 
+export interface ITemp {
+  temp: string;
+  temp_max: string;
+  temp_min: string;
+  humidity: string;
+}
+
 export interface IWeather {
   id: number;
   city: string;
   country: string;
+  main: string;
 }
 
 export interface ISearchHistory {
@@ -41,17 +42,4 @@ export interface ISearchHistory {
 export interface IOnSearchProps {
   city: string;
   country: string;
-}
-
-export interface ISearchBarProps {
-  onSearch: (data: IOnSearchProps) => void;
-  isClear: boolean;
-}
-
-export interface ISearchHistoryProps {
-  onSearch: (data: IOnSearchProps) => void;
-}
-
-export interface IWeatherDetailProps {
-  data: IWeatherResponse;
 }

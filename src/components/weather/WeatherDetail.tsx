@@ -1,6 +1,10 @@
-import { IWeatherDetailProps } from "../../types/types";
+import { IWeatherResponse } from "../../types/types";
 import { convertTimestampToDate } from "../../utils/dateUtils";
 import { WeatherDetailContainer, WeatherLabel, WeatherLocation, WeatherTextContainer, WeatherText, WeatherIcon } from "./style";
+
+interface IWeatherDetailProps {
+    data: IWeatherResponse;
+}
 
 const WeatherDetail = (props: IWeatherDetailProps) => {
     const { data } = props;

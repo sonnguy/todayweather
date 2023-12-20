@@ -11,16 +11,42 @@ const HeaderTitle = styled.h1`
 // styles for SearchBar
 const SearchBarContainer = styled.section`
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  justify-content: center;
   padding: 20px;
   margin-top: 10px;
+  flex-direction: row;
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
 `;
 
-const InputContainer = styled.div`
+const SearchBarInputContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
+`;
+
+const SearchBarInputGroup = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: row;
+  @media (max-width: 768px) {
+    flex-direction: column;
+    align-items: flex-start;
+    margin-top: 10px;
+  }
+`;
+
+const SearchBarActionsContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  @media (max-width: 768px) {
+    margin-top: 20px;
+  }
 `;
 
 const Input = styled.input`
@@ -28,6 +54,10 @@ const Input = styled.input`
   margin-right: 10px;
   border: solid 1px #ddd;
   border-radius: 5px;
+  @media (max-width: 768px) {
+    min-width: 100%;
+    margin-top: 5px;
+  }
 `;
 
 const Label = styled.p`
@@ -110,6 +140,12 @@ const SearchHistoryInfo = styled.div`
   align-items: center;
 `;
 
+const SearchHistoryInfoIcon = styled.div`
+  @media (max-width: 640px) {
+    display: none;
+  }
+`;
+
 const SearchHistoryActions = styled.div`
   display: flex;
   align-items: center;
@@ -180,7 +216,9 @@ const ErrorMessage = styled.div`
 export {
   HeaderTitle,
   SearchBarContainer,
-  InputContainer,
+  SearchBarInputContainer,
+  SearchBarInputGroup,
+  SearchBarActionsContainer,
   Input,
   Label,
   Button,
@@ -193,6 +231,7 @@ export {
   SearchHistoryContainer,
   SearchHistoryItem,
   SearchHistoryInfo,
+  SearchHistoryInfoIcon,
   SearchHistoryActions,
   SearchHistoryCity,
   SearchHistoryTime,

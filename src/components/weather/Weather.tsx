@@ -14,7 +14,7 @@ import { today } from "../../utils/dateUtils";
 
 const Weather = () => {
     const storedItems = useSelector((state: RootState) => state.searchHistory.searchedItems);
-    
+
     const [url, setUrl] = useState('');
 
     const dispatch = useDispatch();
@@ -28,19 +28,20 @@ const Weather = () => {
     const onSearch = ({ city, country }: IOnSearchProps) => {
         if (!city && !country) return;
 
-        const url = `${process.env.REACT_APP_API_URL}/weather?q=${city},${country}&units=metric&APPID=${process.env.REACT_APP_API_KEY}`;
+        const newUrl = `${process.env.REACT_APP_API_URL}/weather?q=${city},${country}&units=metric&APPID=${process.env.REACT_APP_API_KEY}`;
 
-        setUrl(url);
+        setUrl(newUrl);
     }
 
     const mappingDataToSearchHistory = (source: IWeatherResponse) => {
-        const { id, name, sys } = source;
+        const { id, name, sys, weather } = source;
         const mappedData: ISearchHistory = {
             searchedTime: today(),
             weather: {
                 id,
                 city: name,
-                country: sys?.country
+                country: sys?.country,
+                main: weather[0]?.main.toLowerCase()
             }
         }
         return mappedData;
@@ -53,7 +54,7 @@ const Weather = () => {
             const index = storedItems.findIndex(
                 (o: ISearchHistory) => o.weather.id === mappedData.weather.id
             );
-            
+
             dispatch(index === -1 ? addItem(mappedData) : updateItem(mappedData));
         }
     }, [data])
@@ -63,7 +64,7 @@ const Weather = () => {
             <HeaderTitle>
                 Today's Weather
             </HeaderTitle>
-            <SearchBar onSearch={onSearch} isClear={false}/>
+            <SearchBar onSearch={onSearch} />
             {loading && <SearchLoading />}
             {(error && !loading) && <SearchErrorMessage />}
             {(data && !loading) && <WeatherDetail data={data} />}

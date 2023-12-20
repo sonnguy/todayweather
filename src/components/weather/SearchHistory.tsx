@@ -1,12 +1,16 @@
 import { RootState } from '../../store/store';
-import { HeaderTitle, SearchHistoryAction, SearchHistoryActionIcon, SearchHistoryActions, SearchHistoryCity, SearchHistoryContainer, SearchHistoryInfo, SearchHistoryItem, SearchHistoryTime } from "./style";
+import { HeaderTitle, SearchHistoryAction, SearchHistoryActionIcon, SearchHistoryActions, SearchHistoryCity, SearchHistoryContainer, SearchHistoryInfo, SearchHistoryInfoIcon, SearchHistoryItem, SearchHistoryTime } from "./style";
 import { useDispatch, useSelector } from "react-redux";
 import searchIcon from "../../assets/icons/search-icon.png";
 import trashIcon from "../../assets/icons/trash-icon.png";
-import { ISearchHistory, ISearchHistoryProps, IWeather } from '../../types/types';
+import { IOnSearchProps, ISearchHistory, IWeather } from '../../types/types';
 import { deleteItem } from '../../store/searchHistoryReducer';
 import { formatDate } from '../../utils/dateUtils';
 import Icon from '../icons/Icon';
+
+interface ISearchHistoryProps {
+    onSearch: (data: IOnSearchProps) => void;
+  }
 
 const SearchHistory = ({ onSearch }: ISearchHistoryProps) => {
     const items = useSelector((state: RootState) => state.searchHistory.searchedItems);
@@ -34,8 +38,10 @@ const SearchHistory = ({ onSearch }: ISearchHistoryProps) => {
                     items.map(item =>
                         <SearchHistoryItem key={item.weather.id}>
                             <SearchHistoryInfo>
-                                <Icon name={'cloudy'} size={55} />
-                                <div className="ml-4">
+                                <SearchHistoryInfoIcon>
+                                    <Icon name={item.weather.main} size={55} />
+                                </SearchHistoryInfoIcon>
+                                <div className="sm:ml-4">
                                     <SearchHistoryCity>
                                         {item.weather.city}, {item.weather.country}
                                     </SearchHistoryCity>
