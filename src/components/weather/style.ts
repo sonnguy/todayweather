@@ -133,6 +133,12 @@ const SearchHistoryItem = styled.div`
   background-color: #fff;
   border-radius: 5px;
   border: solid 1px #ddd;
+  &:hover {
+    background-color: #44d7b6;
+    * {
+      color: #fff;
+    }
+  }
 `;
 
 const SearchHistoryInfo = styled.div`
@@ -168,6 +174,9 @@ const SearchHistoryAction = styled.div`
   background-color: #eee;
   margin: 0 5px;
   cursor: pointer;
+  &:hover {
+    background-color: #fff;
+  }
 `;
 
 const SearchHistoryActionIcon = styled.img`

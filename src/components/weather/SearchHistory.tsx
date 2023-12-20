@@ -10,7 +10,7 @@ import Icon from '../icons/Icon';
 
 interface ISearchHistoryProps {
     onSearch: (data: IOnSearchProps) => void;
-  }
+}
 
 const SearchHistory = ({ onSearch }: ISearchHistoryProps) => {
     const items = useSelector((state: RootState) => state.searchHistory.searchedItems);
@@ -51,11 +51,11 @@ const SearchHistory = ({ onSearch }: ISearchHistoryProps) => {
                                 </div>
                             </SearchHistoryInfo>
                             <SearchHistoryActions>
-                                <SearchHistoryAction>
-                                    <SearchHistoryActionIcon src={searchIcon} onClick={() => { handleSearch(item.weather) }} />
+                                <SearchHistoryAction onClick={() => { handleSearch(item.weather) }}>
+                                    <SearchHistoryActionIcon src={searchIcon} />
                                 </SearchHistoryAction>
-                                <SearchHistoryAction>
-                                    <SearchHistoryActionIcon src={trashIcon} onClick={() => { onDelete(item) }} />
+                                <SearchHistoryAction onClick={() => { onDelete(item) }}>
+                                    <SearchHistoryActionIcon src={trashIcon} />
                                 </SearchHistoryAction>
                             </SearchHistoryActions>
                         </SearchHistoryItem>
