@@ -57,7 +57,11 @@ const Weather = () => {
 
             dispatch(index === -1 ? addItem(mappedData) : updateItem(mappedData));
         }
-    }, [data])
+        // Reset the URL to force a re-fetch for the next user behavior 
+        if (error || data) {
+            setUrl('');
+        }
+    }, [data, error])
 
     return (
         <div>

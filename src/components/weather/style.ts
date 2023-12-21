@@ -211,15 +211,25 @@ const Spinner = styled.div`
 
 const ErrorMessageContainer = styled.div`
   margin: 0 15px;
-  padding: 10px;
+  padding: 5px 10px;
   border: 1px solid red;
   border-radius: 5px;
   background-color: #fdeeee;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 `;
 
 const ErrorMessage = styled.div`
   font-size: 14px;
   color: #333;
+`;
+
+const ErrorCloseIcon = styled.span`
+  font-size: 14px;
+  color: red;
+  cursor: pointer;
+  padding: 10px;
 `;
 
 export {
@@ -250,4 +260,5 @@ export {
   Spinner,
   ErrorMessageContainer,
   ErrorMessage,
+  ErrorCloseIcon,
 };

@@ -1,6 +1,6 @@
 import { Spinner, SpinnerContainer } from "./style";
 
-const SearchLoading = (props: any) => {
+const SearchLoading = () => {
     return (
         <SpinnerContainer>
             <Spinner />

@@ -7,12 +7,13 @@ To set up and run the application, follow the steps below:
 - Run `npm start` or `yarn start` to start the application.
 
 ##### This project is integrated with the OpenWeatherMap API. To ensure proper functionality, please follow these steps:
-     1. Create .env file in root folder
-     2. Add the following variables to the .env file:
-          REACT_APP_API_URL = https://api.openweathermap.org/data/2.5
-          REACT_APP_API_KEY = 03522c9f8409a99f4e7b95b80af21cfd or [YourAppId]
-          REACT_APP_ICON_URL = https://openweathermap.org/img/w
+1. Create `.env` file in root folder
+2. Add the following variables to the `.env` file:
 
+          REACT_APP_API_URL = https://api.openweathermap.org/data/2.5
+          REACT_APP_API_KEY = 03522c9f8409a99f4e7b95b80af21cfd
+          REACT_APP_ICON_URL = https://openweathermap.org/img/w
+###### Noted: You can change the value of `REACT_APP_API_KEY` to your own App ID.
 ## Folder structure
 
 This template follows a very simple project structure:
