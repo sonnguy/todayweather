@@ -49,10 +49,12 @@ const SearchBarActionsContainer = styled.div`
   }
 `;
 
-const Input = styled.input`
+const Input = styled.input<{
+  $error?: boolean;
+}>`
   padding: 8px;
   margin-right: 10px;
-  border: solid 1px #ddd;
+  border: solid 1px ${(props) => (props.$error ? "red" : "#ddd")};
   border-radius: 5px;
   @media (max-width: 768px) {
     min-width: 100%;
@@ -218,6 +220,7 @@ const ErrorMessageContainer = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-bottom: 5px;
 `;
 
 const ErrorMessage = styled.div`

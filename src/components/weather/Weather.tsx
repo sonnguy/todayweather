@@ -70,7 +70,7 @@ const Weather = () => {
             </HeaderTitle>
             <SearchBar onSearch={onSearch} />
             {loading && <SearchLoading />}
-            {(error && !loading) && <SearchErrorMessage />}
+            {(error && !loading) && <SearchErrorMessage message={"Data not found. Please ensure that the city name or country name is entered correctly."} />}
             {(data && !loading) && <WeatherDetail data={data} />}
             <SearchHistory onSearch={onSearch} />
         </div>

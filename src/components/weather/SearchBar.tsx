@@ -9,14 +9,27 @@ interface ISearchBarProps {
 const SearchBar = ({ onSearch }: ISearchBarProps) => {
     const [city, setCity] = useState('');
     const [country, setCountry] = useState('');
+    const [error, setError] = useState(false);
 
     const handleSearch = () => {
+        if (!city && !country) {
+            setError(true);
+            return;
+        }
         onSearch({ city, country });
+        setError(false);
+    };
+
+    const handleEnterKey = (event: any) => {
+        if (event.key === 'Enter') {
+            handleSearch();
+        }
     };
 
     const handleClear = () => {
         setCity('');
         setCountry('');
+        setError(false);
     };
 
     return (
@@ -25,19 +38,23 @@ const SearchBar = ({ onSearch }: ISearchBarProps) => {
                 <SearchBarInputGroup>
                     <Label>City:</Label>
                     <Input
+                        $error={error && !city}
                         type="text"
                         placeholder="e.g. London"
                         value={city}
                         onChange={e => setCity(e.target.value)}
+                        onKeyDown={handleEnterKey}
                     />
                 </SearchBarInputGroup>
                 <SearchBarInputGroup>
                     <Label>Country:</Label>
                     <Input
+                        $error={error && !country}
                         type="text"
                         placeholder="e.g. GB"
                         value={country}
                         onChange={e => setCountry(e.target.value)}
+                        onKeyDown={handleEnterKey}
                     />
                 </SearchBarInputGroup>
             </SearchBarInputContainer>
