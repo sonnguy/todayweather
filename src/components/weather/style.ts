@@ -186,6 +186,14 @@ const SearchHistoryActionIcon = styled.img`
   width: 15px;
 `;
 
+const SearchNotFoundMessage = styled.p`
+  font-weight: 500;
+  font-size: 20px;
+  color: #8f8f8f;
+  text-align: center;
+  margin: 10px 0;
+`;
+
 // styles for loading spinner
 
 const spinAnimation = keyframes`
@@ -259,6 +267,7 @@ export {
   SearchHistoryTime,
   SearchHistoryAction,
   SearchHistoryActionIcon,
+  SearchNotFoundMessage,
   SpinnerContainer,
   Spinner,
   ErrorMessageContainer,

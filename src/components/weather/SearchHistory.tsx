@@ -1,5 +1,5 @@
 import { RootState } from '../../store/store';
-import { HeaderTitle, SearchHistoryAction, SearchHistoryActionIcon, SearchHistoryActions, SearchHistoryCity, SearchHistoryContainer, SearchHistoryInfo, SearchHistoryInfoIcon, SearchHistoryItem, SearchHistoryTime } from "./style";
+import { HeaderTitle, SearchHistoryAction, SearchHistoryActionIcon, SearchHistoryActions, SearchHistoryCity, SearchHistoryContainer, SearchHistoryInfo, SearchHistoryInfoIcon, SearchHistoryItem, SearchHistoryTime, SearchNotFoundMessage } from "./style";
 import { useDispatch, useSelector } from "react-redux";
 import searchIcon from "../../assets/icons/search-icon.png";
 import trashIcon from "../../assets/icons/trash-icon.png";
@@ -34,6 +34,9 @@ const SearchHistory = ({ onSearch }: ISearchHistoryProps) => {
                 Search History
             </HeaderTitle>
             <SearchHistoryContainer>
+                {
+                    !items.length && <SearchNotFoundMessage>No Record</SearchNotFoundMessage>
+                }
                 {
                     items.map(item =>
                         <SearchHistoryItem key={item.weather.id}>
