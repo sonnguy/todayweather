@@ -5,6 +5,7 @@ To set up and run the application, follow the steps below:
 
 - Run ```npm install``` or ```yarn``` to install the dependencies.
 - Run `npm start` or `yarn start` to start the application.
+- Run `npm test` or `yarn test` to start the unit test.
 
 ##### This project is integrated with the OpenWeatherMap API. To ensure proper functionality, please follow these steps:
 1. Create `.env` file in root folder
@@ -19,6 +20,7 @@ To set up and run the application, follow the steps below:
 This template follows a very simple project structure:
 
 - `src`: This folder is the main container for all the code inside your application.
+  - `__tests__`: Contains all unit tests.
   - `assets`: Contains assets such as images and vectors.
   - `components`: Stores common components used throughout the app, such as a generic button.
   - `constants`: Holds any kind of constants used in the application.
