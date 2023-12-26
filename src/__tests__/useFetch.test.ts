@@ -1,4 +1,4 @@
-import { renderHook } from "@testing-library/react-hooks";
+import { renderHook, waitFor } from "@testing-library/react";
 import useFetch from "../hook/useFetch";
 import { RequestConfig } from "../types/types";
 
@@ -18,17 +18,14 @@ describe("useFetch", () => {
       ok: true,
     } as any);
 
-    const { result, waitForNextUpdate } = renderHook(() =>
-      useFetch({ ...config, url })
-    );
+    const { result } = renderHook(() => useFetch({ ...config, url }));
     expect(result.current.loading).toBe(true);
     expect(result.current.data).toBe(null);
     expect(result.current.error).toBe(null);
 
-    await waitForNextUpdate();
-    expect(result.current.loading).toBe(false);
-    expect(result.current.data).toEqual(testData);
-    expect(result.current.error).toBe(null);
+    await waitFor(() => expect(result.current.loading).toBe(false));
+    await waitFor(() => expect(result.current.data).toEqual(testData));
+    await waitFor(() => expect(result.current.error).toBe(null));
   });
 
   it("should handle fetch errors", async () => {
@@ -38,16 +35,13 @@ describe("useFetch", () => {
     // Mock the fetch response to throw an error
     jest.spyOn(window, "fetch").mockRejectedValueOnce(error);
 
-    const { result, waitForNextUpdate } = renderHook(() =>
-      useFetch({ ...config, url })
-    );
+    const { result } = renderHook(() => useFetch({ ...config, url }));
     expect(result.current.loading).toBe(true);
     expect(result.current.data).toBe(null);
     expect(result.current.error).toBe(null);
-
-    await waitForNextUpdate();
-    expect(result.current.loading).toBe(false);
-    expect(result.current.data).toBe(null);
-    expect(result.current.error).toEqual(error);
+    
+    await waitFor(() => expect(result.current.loading).toBe(false));
+    await waitFor(() => expect(result.current.data).toEqual(null));
+    await waitFor(() => expect(result.current.error).toBe(error));
   });
 });
