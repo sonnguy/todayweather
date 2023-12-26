@@ -34,6 +34,7 @@ const useFetch = <T>(config: RequestConfig): FetchResponse<T> => {
     };
 
     fetchData();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [config.url]);
 
   return { data, error, loading };
