@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.css": "/todayweather/static/css/main.633328db.css",
+    "main.js": "/todayweather/static/js/main.9118b6f3.js",
+    "static/js/787.0f7dc5a1.chunk.js": "/todayweather/static/js/787.0f7dc5a1.chunk.js",
+    "static/media/icons.png": "/todayweather/static/media/icons.d1e582ce82b74278910b.png",
+    "static/media/trash-icon.png": "/todayweather/static/media/trash-icon.c4e35861d2606e76ed78.png",
+    "index.html": "/todayweather/index.html",
+    "main.633328db.css.map": "/todayweather/static/css/main.633328db.css.map",
+    "main.9118b6f3.js.map": "/todayweather/static/js/main.9118b6f3.js.map",
+    "787.0f7dc5a1.chunk.js.map": "/todayweather/static/js/787.0f7dc5a1.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.633328db.css",
+    "static/js/main.9118b6f3.js"
+  ]
+}
