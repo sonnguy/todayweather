@@ -61,6 +61,7 @@ const Weather = () => {
         if (error || data) {
             setUrl('');
         }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [data, error])
 
     return (
