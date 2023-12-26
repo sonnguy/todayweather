@@ -38,4 +38,4 @@ This template follows a very simple project structure:
 use AJAX to get weather information from OpenWeatherAPI(https://openweathermap.org/api).
  3. User can find their records in search history, and can click search button to call api again. Can click
 delete button to remove the record.
- 4. If user inputs invalid city or country name, show appropriate message on UI.
+ 4. If user inputs invalid city or country name, show appropriate message on UI
